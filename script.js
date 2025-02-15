@@ -19,3 +19,42 @@ function opentab(tabName) {
     document.getElementById(tabName).classList.add('active-tab');
     document.querySelector(tab-links[onclick="opentab('${tabName}')"]).classList.add('active-link');
 }
+
+    // Name Validation
+    const name = document.getElementById('name').value.trim();
+    if (!name) showError('name', 'Name is required');
+
+    // Email Validation
+    const email = document.getElementById('email').value.trim();
+    if (!email) {
+        showError('email', 'Email is required');
+    } else if (!isValidEmail(email)) {
+        showError('email', 'Invalid email format');
+    }
+
+    // Message Validation
+    const message = document.getElementById('message').value.trim();
+    if (!message) showError('message', 'Message is required');
+
+    // Submit if valid
+    if (name && email && isValidEmail(email) && message) {
+        alert('Form submitted successfully!');
+        this.reset();
+    }
+});
+
+// Helper Functions
+function showError(fieldId, errorMessage) {
+    const field = document.getElementById(fieldId);
+    field.classList.add('error');
+    // Display error message
+}
+
+function clearErrors() {
+    // Clear previous errors
+}
+
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
