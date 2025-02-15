@@ -19,6 +19,11 @@ function opentab(tabName) {
     document.getElementById(tabName).classList.add('active-tab');
     document.querySelector(tab-links[onclick="opentab('${tabName}')"]).classList.add('active-link');
 }
+// script.js
+document.getElementById('contactForm').addEventListener('submit', function (event) {
+    event.preventDefault(); 
+    clearErrors();
+
 
     // Name Validation
     const name = document.getElementById('name').value.trim();
